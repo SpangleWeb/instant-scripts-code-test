@@ -1,24 +1,17 @@
 import React, {Component} from 'react'
 import jquery from 'jquery'
-
 export default class MessageBar extends Component {
-
 	constructor (props) {
 	    super(props)
-
 		this.state = {
 			msgs: []
 		};
-
 		// {h:'hd', m:'msg'}, {h:'hhdd', m:'mmsgg'}
-
 		app.on(app.events.show_message, this.show_message.bind(this))
 	}
-
-
 	render () {
 		return (
-			this.state.msgs.length>0 &&
+			this.state.msgs.length > 0 &&
 			<div id='msg_bar' ref='msg_bar'>
 				<div className='container'>
 					<div>
@@ -35,29 +28,22 @@ export default class MessageBar extends Component {
 			</div>
 		)
 	}
-
 	//	------------	------------	------------	------------
-
 	show_message (h, m) {
 		const msgs = this.state.msgs
 		msgs.push({h:unescape(h), m:unescape(m)})
-
 		this.setState({
 			msgs
 		})
-
 		jquery(this.refs.msg_bar).slideDown()
 	}
-
 	closeWindow () {
 		this.state.msgs = []
 		jquery(this.refs.msg_bar).slideUp()
 	}
-
 	test_message () {
 		app.trigger(app.events.show_message, 'header', 'this is message')
 	}
 }
-
 MessageBar.propTypes = {
 }
