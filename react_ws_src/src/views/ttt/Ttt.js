@@ -9,7 +9,9 @@ export default class Ttt extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			game_step: this.set_game_step()
+			game_step: this.set_game_step(),
+      // Initialize game_type in state
+			game_type: null
 		};
 	}
 
@@ -48,12 +50,12 @@ export default class Ttt extends Component {
 	}
 
 	saveGameType(t) {
-		this.state.game_type = t;
+		this.setState({ game_type: t });
 		this.upd_game_step();
 	}
 
-	gameEnd(t) {
-		this.state.game_type = null;
+	gameEnd() {
+		this.setState({ game_type: null });
 		this.upd_game_step();
 	}
 
