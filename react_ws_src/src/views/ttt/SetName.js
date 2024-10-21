@@ -7,7 +7,7 @@ export default class SetName extends Component {
 //	------------------------	------------------------	------------------------
 	render () {
 		return (
-			<div id='SetName' class="page-name">
+			<div id='SetName' className="page-name">
 				<h1>Set Name</h1>
 				<div ref='nameHolder' className='input_holder left'>
 					<label>Name </label>
